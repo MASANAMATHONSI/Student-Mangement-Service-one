@@ -56,7 +56,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
+            this.button1.Text = "Register";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // label1
@@ -64,9 +64,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(326, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.Size = new System.Drawing.Size(113, 16);
             this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.label1.Text = "Registration Form";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // textBox1
@@ -81,9 +81,10 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(45, 104);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.Size = new System.Drawing.Size(65, 16);
             this.label2.TabIndex = 3;
-            this.label2.Text = "label2";
+            this.label2.Text = "StudentID";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -92,34 +93,34 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 16);
             this.label3.TabIndex = 4;
-            this.label3.Text = "label3";
+            this.label3.Text = "Name";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(45, 205);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 16);
+            this.label4.Size = new System.Drawing.Size(61, 16);
             this.label4.TabIndex = 5;
-            this.label4.Text = "label4";
+            this.label4.Text = "Surname";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(45, 253);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 16);
+            this.label5.Size = new System.Drawing.Size(36, 16);
             this.label5.TabIndex = 6;
-            this.label5.Text = "label5";
+            this.label5.Text = "Year";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(45, 306);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 16);
+            this.label6.Size = new System.Drawing.Size(45, 16);
             this.label6.TabIndex = 7;
-            this.label6.Text = "label6";
+            this.label6.Text = "Grade";
             // 
             // textBox3
             // 
@@ -155,7 +156,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 13;
-            this.button2.Text = "button2";
+            this.button2.Text = "Delete";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button3
@@ -164,7 +165,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 14;
-            this.button3.Text = "button3";
+            this.button3.Text = "Update";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button4
@@ -173,7 +174,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 15;
-            this.button4.Text = "button4";
+            this.button4.Text = "Search";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // button5
@@ -182,7 +183,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 16;
-            this.button5.Text = "button5";
+            this.button5.Text = "Show All";
             this.button5.UseVisualStyleBackColor = true;
             // 
             // button6
@@ -191,7 +192,7 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 23);
             this.button6.TabIndex = 17;
-            this.button6.Text = "button6";
+            this.button6.Text = "Exit";
             this.button6.UseVisualStyleBackColor = true;
             // 
             // button7
@@ -200,7 +201,7 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 23);
             this.button7.TabIndex = 18;
-            this.button7.Text = "button7";
+            this.button7.Text = "Exit";
             this.button7.UseVisualStyleBackColor = true;
             // 
             // dataGridView1

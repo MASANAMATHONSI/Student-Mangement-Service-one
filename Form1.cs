@@ -21,5 +21,10 @@ namespace Student_Mangement_Service_one
         {
 
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
