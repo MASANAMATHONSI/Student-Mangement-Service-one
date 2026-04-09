@@ -46,6 +46,11 @@ namespace Student_Mangement_Service_one
                 MessageBox.Show("Not found");
             }
             dataGridView1.DataSource = result;
+            textBox1.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
+            textBox6.Clear();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -58,6 +63,11 @@ namespace Student_Mangement_Service_one
             handler.AddData(textBox1.Text, textBox3.Text, textBox4.Text, int.Parse(textBox5.Text), decimal.Parse(textBox6.Text));
 
             MessageBox.Show("Sucessful");
+            textBox1.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
+            textBox6.Clear();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -69,7 +79,7 @@ namespace Student_Mangement_Service_one
         {
             if (int.TryParse(textBox1.Text, out int studentID))
             {
-                // 1. Get the existing data from the database
+                // 1. Get the existing data from the database comments are for my understanding
                 DataTable currentData = handler.Search(studentID.ToString());
 
                 if (currentData.Rows.Count > 0)
@@ -100,11 +110,6 @@ namespace Student_Mangement_Service_one
             {
                 MessageBox.Show("Please enter a valid numeric Student ID to perform an update.");
             }
-        }
-
-
-        private void Clear_Click(object sender, EventArgs e)
-        {
             textBox1.Clear();
             textBox3.Clear();
             textBox4.Clear();
@@ -112,11 +117,23 @@ namespace Student_Mangement_Service_one
             textBox6.Clear();
         }
 
+
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
 
             handler.Delete(textBox1.Text);
             MessageBox.Show("Sucessful");
+
+            textBox1.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
+            textBox6.Clear();
         }
     }
     
