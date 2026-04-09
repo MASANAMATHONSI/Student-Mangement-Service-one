@@ -203,6 +203,7 @@
             this.button7.TabIndex = 18;
             this.button7.Text = "Exit";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // dataGridView1
             // 

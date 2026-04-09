@@ -8,8 +8,18 @@ using System.Data;
 
 namespace Student_Mangement_Service_one
 {
-    internal class Dathandler
+  public class Dathandler
     {
         string conn = ("Server=.;Initial Catalog=BCDatabase1;User ID=sa;Password=sa2025@1");
+
+        public DataSet ViewAll()
+        {
+            string query = "SELECT * FROM Student";
+            SqlDataAdapter da = new SqlDataAdapter(query, conn);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            return ds;
+        }
+
     }
 }

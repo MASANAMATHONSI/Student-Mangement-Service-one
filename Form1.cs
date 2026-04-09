@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+
 
 namespace Student_Mangement_Service_one
 {
     public partial class Form1 : Form
     {
+        Dathandler handler = new Dathandler();
         public Form1()
         {
             InitializeComponent();
@@ -25,6 +28,11 @@ namespace Student_Mangement_Service_one
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = handler.ViewAll().Tables[0];
         }
     }
 }
