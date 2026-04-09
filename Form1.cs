@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
 namespace Student_Mangement_Service_one
@@ -50,6 +51,18 @@ namespace Student_Mangement_Service_one
         private void button5_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = handler.ViewAll().Tables[0];
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            handler.AddData(textBox1.Text, textBox3.Text, textBox4.Text, int.Parse(textBox5.Text), decimal.Parse(textBox6.Text));
+
+            MessageBox.Show("Sucessful");
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

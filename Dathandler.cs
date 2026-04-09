@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
-using System.Data;
+using System.Windows.Forms;
 
 namespace Student_Mangement_Service_one
 {
@@ -36,5 +37,37 @@ namespace Student_Mangement_Service_one
 
             }
         }
+
+        public void AddData(string studentID, string name, string surname, int year, decimal grade)
+        {
+            using (SqlConnection connection = new SqlConnection(conn))
+            {
+
+                try
+                {
+                    connection.Open();
+                    string query = "INSERT INTO Student (StudentID,Name,Surname,Year,Grade)" +
+                        "VALUES (@StudentID,@Name,@Surname,@Year,@Grade)";
+
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("@StudentID", studentID);
+                    cmd.Parameters.AddWithValue("@Name", name);
+                    cmd.Parameters.AddWithValue("@Surname", surname);
+                    cmd.Parameters.AddWithValue("@Year", year);
+                    cmd.Parameters.AddWithValue("@Grade", grade);
+
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error" + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+
     }
 }

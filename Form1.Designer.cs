@@ -58,6 +58,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Register";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -196,6 +197,7 @@
             this.button6.TabIndex = 17;
             this.button6.Text = "Exit";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
