@@ -69,5 +69,49 @@ namespace Student_Mangement_Service_one
             }
         }
 
+        public void Updata(int studentID, string name, string surname, int year, decimal grade)
+        {
+            using (SqlConnection connection = new SqlConnection(conn))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "UPDATE  Student " +
+                        " SET " +
+                        "StudentID=@StudentID," +
+                        "Name=@Name," +
+                        "Surname=@Surname," +
+                        "Year=@Year," +
+                        "Grade=@Grade";
+
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("@StudentID", studentID);
+                    cmd.Parameters.AddWithValue("@Name", name);
+                    cmd.Parameters.AddWithValue("@Surname", surname);
+                    cmd.Parameters.AddWithValue("@Year", year);
+                    cmd.Parameters.AddWithValue("@Grade", grade);
+
+                    int rows = cmd.ExecuteNonQuery();
+
+                    if (rows == 0)
+                    {
+                        MessageBox.Show("No student found");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Student found");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error" + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+
     }
 }

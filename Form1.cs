@@ -64,5 +64,26 @@ namespace Student_Mangement_Service_one
         {
             this.Close();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int studentID = int.Parse(textBox1.Text);
+            string name = textBox3.Text;
+            string surname = textBox4.Text;
+            int year = int.Parse(textBox5.Text);
+            decimal grade = decimal.Parse(textBox6.Text);
+
+            handler.Updata(studentID, name, surname, year, grade);
+        }
+
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
+            textBox6.Clear();
+        }
     }
+    
 }
