@@ -67,14 +67,41 @@ namespace Student_Mangement_Service_one
 
         private void button3_Click(object sender, EventArgs e)
         {
-            int studentID = int.Parse(textBox1.Text);
-            string name = textBox3.Text;
-            string surname = textBox4.Text;
-            int year = int.Parse(textBox5.Text);
-            decimal grade = decimal.Parse(textBox6.Text);
+            if (int.TryParse(textBox1.Text, out int studentID))
+            {
+                // 1. Get the existing data from the database
+                DataTable currentData = handler.Search(studentID.ToString());
 
-            handler.Updata(studentID, name, surname, year, grade);
+                if (currentData.Rows.Count > 0)
+                {
+                    DataRow row = currentData.Rows[0];
+
+                    // 2. Use the new text if provided, otherwise keep the old database value
+                    string name = string.IsNullOrWhiteSpace(textBox3.Text) ? row["Name"].ToString() : textBox3.Text;
+                    string surname = string.IsNullOrWhiteSpace(textBox4.Text) ? row["Surname"].ToString() : textBox4.Text;
+
+                    // For numbers, check if the box is empty before parsing
+                    int year = string.IsNullOrWhiteSpace(textBox5.Text) ? int.Parse(row["Year"].ToString()) : int.Parse(textBox5.Text);
+                    decimal grade = string.IsNullOrWhiteSpace(textBox6.Text) ? decimal.Parse(row["Grade"].ToString()) : decimal.Parse(textBox6.Text);
+
+                    // 3. Send the merged data to the update method
+                    handler.Updata(studentID, name, surname, year, grade);
+
+                    // Refresh the grid
+                    dataGridView1.DataSource = handler.ViewAll().Tables[0];
+                    MessageBox.Show("Update processed successfully!");
+                }
+                else
+                {
+                    MessageBox.Show("Student ID not found in database.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid numeric Student ID to perform an update.");
+            }
         }
+
 
         private void Clear_Click(object sender, EventArgs e)
         {
@@ -83,6 +110,13 @@ namespace Student_Mangement_Service_one
             textBox4.Clear();
             textBox5.Clear();
             textBox6.Clear();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            handler.Delete(textBox1.Text);
+            MessageBox.Show("Sucessful");
         }
     }
     

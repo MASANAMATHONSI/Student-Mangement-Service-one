@@ -69,20 +69,14 @@ namespace Student_Mangement_Service_one
             }
         }
 
-        public void Updata(int studentID, string name, string surname, int year, decimal grade)
+        public void Updata(int studentID, string name, string surname, int year, decimal grade) // Already int
         {
             using (SqlConnection connection = new SqlConnection(conn))
             {
                 try
                 {
                     connection.Open();
-                    string query = "UPDATE  Student " +
-                        " SET " +
-                        "StudentID=@StudentID," +
-                        "Name=@Name," +
-                        "Surname=@Surname," +
-                        "Year=@Year," +
-                        "Grade=@Grade";
+                    string query = "UPDATE Student SET Name=@Name, Surname=@Surname, Year=@Year, Grade=@Grade WHERE StudentID=@StudentID";
 
                     SqlCommand cmd = new SqlCommand(query, connection);
                     cmd.Parameters.AddWithValue("@StudentID", studentID);
@@ -90,6 +84,34 @@ namespace Student_Mangement_Service_one
                     cmd.Parameters.AddWithValue("@Surname", surname);
                     cmd.Parameters.AddWithValue("@Year", year);
                     cmd.Parameters.AddWithValue("@Grade", grade);
+
+                    int rows = cmd.ExecuteNonQuery();
+
+                    if (rows == 0)
+                    {
+                        MessageBox.Show("Update failed: ID not found.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Update successful!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+        public void Delete(string studentID)
+        {
+            using (SqlConnection connection = new SqlConnection(conn))
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "DELETE FROM Student WHERE StudentID=@StudentID";
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("@StudentID", studentID);
 
                     int rows = cmd.ExecuteNonQuery();
 
@@ -111,7 +133,7 @@ namespace Student_Mangement_Service_one
                     connection.Close();
                 }
             }
-        }
 
+        }
     }
 }
