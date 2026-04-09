@@ -16,5 +16,10 @@ namespace Student_Mangement_Service_one
         {
             InitializeComponent();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
