@@ -32,6 +32,23 @@ namespace Student_Mangement_Service_one
 
         private void button7_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string studentid = textBox1.Text;
+            DataTable result = handler.Search(studentid);
+
+            if (result.Rows.Count == 0)
+            {
+                MessageBox.Show("Not found");
+            }
+            dataGridView1.DataSource = result;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
             dataGridView1.DataSource = handler.ViewAll().Tables[0];
         }
     }

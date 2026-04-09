@@ -21,5 +21,20 @@ namespace Student_Mangement_Service_one
             return ds;
         }
 
+        public DataTable Search(string studentID)
+        {
+            using (SqlConnection connection = new SqlConnection(conn))
+            {
+                string query = "SELECT * FROM Student WHERE StudentID=@StudentID";
+                SqlCommand cmd = new SqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@StudentID", studentID);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable ds = new DataTable();
+                da.Fill(ds);
+                return ds;
+
+            }
+        }
     }
 }
